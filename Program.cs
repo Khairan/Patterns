@@ -40,24 +40,25 @@ namespace Lesson1
         static int ReadString()
         {
             String inputString;
-            uint inputNumber = 0;
+            int inputNumber = 0;
             int quitNumber = -1;
             bool numberParsed = false;
 
             while (!numberParsed)
             {
-                Console.WriteLine("Пожалуйста, введите натуральное число или букву q для выхода: ");
+                Console.WriteLine("Пожалуйста, введите натуральное число больше 0 или букву q для выхода: ");
                 inputString = Console.ReadLine();
 
                 if (inputString == "q")
-                {
                     return quitNumber;
-                }
 
-                numberParsed = UInt32.TryParse(inputString, out inputNumber);
+                numberParsed = Int32.TryParse(inputString, out inputNumber);
+                
+                if (inputNumber <= 0)
+                    numberParsed = false;
             }
 
-            return (int)inputNumber;
+            return inputNumber;
         }
 
         static void Main()
@@ -71,7 +72,7 @@ namespace Lesson1
             }
 
             Console.WriteLine($"Факториал {inputNumber} = {Factorial(inputNumber)}"); 
-            Console.WriteLine($"Сумма всех чисел от 0 до {inputNumber} = {Sum(inputNumber)}");
+            Console.WriteLine($"Сумма чисел от 1 до {inputNumber} = {Sum(inputNumber)}");
             Console.WriteLine($"Максимальное четное число меньше {inputNumber} = {MaxEven(inputNumber)}");
             Console.ReadLine();
         }
