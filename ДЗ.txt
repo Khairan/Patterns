@@ -1,0 +1,20 @@
+Антипаттерны, которыми я грешил в свое время, а что-то встречается до сих пор из-за нехватки времени или навыков:
+
+1. Accidental complexity
+2. Blind faith
+3. Boat anchor
+4. Copy and Paste Programming
+5. Fear of adding classes
+6. God object
+7. Golden hammer
+8. Hard code
+9. Lava flow
+10. Magic numbers and lines
+11. Programming by permutation
+12. Reinventing the wheel
+13. Spaghetti code
+14. Cryptic code
+
+Паттерны проектирования нужны для ускорения проектирования и разработки путем внедрения проверенных решений,
+которые показали свою эффективность вместо изобретения своих велосипедов.
+Так же они помогают стандартизировать код и делают его понятным для других программистов знакомых с данной архитектурой.
