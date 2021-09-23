@@ -42,9 +42,9 @@ namespace Lesson1
             String inputString;
             uint inputNumber = 0;
             int quitNumber = -1;
-            bool flag = false;
+            bool numberParsed = false;
 
-            while (!flag)
+            while (!numberParsed)
             {
                 Console.WriteLine("Пожалуйста, введите натуральное число или букву q для выхода: ");
                 inputString = Console.ReadLine();
@@ -54,7 +54,7 @@ namespace Lesson1
                     return quitNumber;
                 }
 
-                flag = UInt32.TryParse(inputString, out inputNumber);
+                numberParsed = UInt32.TryParse(inputString, out inputNumber);
             }
 
             return (int)inputNumber;
