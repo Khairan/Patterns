@@ -8,10 +8,16 @@ namespace Asteroids.Object_Pool
 {
     internal sealed class EnemyPool
     {
+        #region Fields
+
         private readonly Dictionary<string, HashSet<Enemy>> _enemyPool;
         private readonly int _capacityPool;
         private Transform _rootPool;
 
+        #endregion
+
+
+        #region Methods
 
         public EnemyPool(int capacityPool)
         {
@@ -74,5 +80,8 @@ namespace Asteroids.Object_Pool
         {
             Object.Destroy(_rootPool.gameObject);
         }
+
+        #endregion
+
     }
 }

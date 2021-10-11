@@ -6,9 +6,15 @@ namespace Asteroids
 {
     public abstract class Enemy : MonoBehaviour
     {
+        #region Fields
+        
         public static IEnemyFactory Factory;
         private Transform _rotPool;
         private Health _health;
+
+        #endregion
+
+        #region Methods
 
         public Health Health
         {
@@ -46,6 +52,11 @@ namespace Asteroids
             return enemy;
         }
 
+        public void DependencyInjectHealth(Health hp)
+        {
+            Health = hp;
+        }
+
         public void ActiveEnemy(Vector3 position, Quaternion rotation)
         {
             transform.localPosition = position;
@@ -66,5 +77,8 @@ namespace Asteroids
                 Destroy(gameObject);
             }
         }
+
+        #endregion
+
     }
 }

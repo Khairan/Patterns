@@ -2,8 +2,15 @@
 {
     public sealed class Health
     {
+        #region Fields
+
         public float Max { get; }
         public float Current { get; private set; }
+
+        #endregion
+
+
+        #region Methods
 
         public Health(float max, float current)
         {
@@ -15,5 +22,7 @@
         {
             Current = hp;
         }
+
+        #endregion
     }
 }
