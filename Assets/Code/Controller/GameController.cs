@@ -1,4 +1,5 @@
 ﻿using Asteroids.Object_Pool;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -8,7 +9,7 @@ namespace Asteroids
     {
         #region Fields
 
-        private ListExecuteObject _executeObjects;
+        private List<IExecute> _executeObjects;
         private Reference _reference;
 
         #endregion
@@ -18,15 +19,15 @@ namespace Asteroids
 
         private void Awake()
         {
-            _executeObjects = new ListExecuteObject();
+            _executeObjects = new List<IExecute>();
 
             _reference = new Reference();
             
             var inputController = new InputController(_reference.Player, _reference.MainCamera);
-            _executeObjects.AddExecuteObject(inputController);
+            _executeObjects.Add(inputController);
                         
             var cameraController = new CameraController(_reference.Player.transform, _reference.MainCamera.transform);
-            _executeObjects.AddExecuteObject(cameraController);
+            _executeObjects.Add(cameraController);
 
             EnemyPool enemyPool = new EnemyPool(5);
             var enemy = enemyPool.GetEnemy("Asteroid");
@@ -36,7 +37,7 @@ namespace Asteroids
 
         private void Update()
         {
-            for (var i = 0; i < _executeObjects.Length; i++)
+            for (var i = 0; i < _executeObjects.Count; i++)
             {
                 var interactiveObject = _executeObjects[i];
 
